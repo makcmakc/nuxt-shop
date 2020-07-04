@@ -1,0 +1,29 @@
+.form {
+  margin-top: 130px;
+  position: relative;
+  .page-title {
+    position: absolute;
+    margin-top: -50px;
+    margin-left: 30px;
+    font-size: 28px;
+    color: #5B1295;
+  }
+  input {
+    margin-left: 30px;
+    margin-top: 20px;
+    display: block;
+    width: 375px;
+    height: 36px;
+    border-radius: 6px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid #ccc;
+    box-shadow: none;
+    border-radius: 3px;
+    text-indent: 18px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #000;
+    appearance: none;
+  }  
+ }
