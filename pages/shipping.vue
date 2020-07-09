@@ -6,7 +6,7 @@
 
 					<div class="order-form__fields">
 				    <v-stepper-header>
-				      <v-stepper-step :complete="e1 > 1" step="1">Personal</v-stepper-step>
+				      <v-stepper-step :complete="e1 > 1" step="1">Information</v-stepper-step>
 
 				      <v-icon>mdi-chevron-right</v-icon>
 
@@ -28,14 +28,22 @@
 									
 							    <form>
 
-							      <ValidationProvider v-slot="{ errors }" name="Name" rules="required">
+							      <ValidationProvider v-slot="{ errors }" name="First name" rules="required">
 							        <v-text-field
-							          v-model="name"
+							          v-model="firstName"
 							          :error-messages="errors"
-							          label="Full Name"
+							          label="First Name"
 							          required
 							        ></v-text-field>
 							      </ValidationProvider>
+							      <ValidationProvider v-slot="{ errors }" name="Last name" rules="required">
+							        <v-text-field
+							          v-model="lastName"
+							          :error-messages="errors"
+							          label="Last Name"
+							          required
+							        ></v-text-field>
+							      </ValidationProvider>							      
 							      <ValidationProvider v-slot="{ errors }" name="Email" rules="required|email">
 							        <v-text-field
 							          v-model="email"
@@ -84,7 +92,7 @@
 							      <ValidationProvider>
 							        <v-text-field
 							          v-model="additional_data"
-							          label="Apt, Suite, Gate, (optional)"
+							          label="Apartment, Suite, Gate, etc. (optional)"
 							        ></v-text-field>
 							      </ValidationProvider>
 							      <ValidationProvider v-slot="{ errors }" name="City" rules="required">
@@ -98,7 +106,6 @@
 							      
 
 							      <ValidationProvider v-slot="{ errors }" name="Country" rules="required">
-
 								        <v-select
 								          v-model="country"
 								          :error-messages="errors"
@@ -107,8 +114,7 @@
 								          label=" Country"
 								          required
 								        ></v-select>
-
-							      </ValidationProvider>				  
+							      </ValidationProvider>										      
 							      <ValidationProvider v-slot="{ errors }" name="Zip Code" rules="required|numeric">
 								        <v-text-field
 								          v-model="zipCode"
@@ -325,7 +331,7 @@
 
 .order-form{
 	display: flex !important;
-
+	
 }
 
 .order-form__fields {
