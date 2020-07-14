@@ -1,50 +1,70 @@
 <template>
-<v-container fluid>
-<v-layout
-    column
-    justify-center
-    align-center
-  > 
-      <v-col cols="6">
-        <div class="img">
-        <v-img 
-          src="https://i.pinimg.com/originals/a9/94/7a/a9947a21d05093a3e83df149a8c9c247.jpg"
-          max-height="400px"
-          width="400px"
-        ></v-img>
-        </div>
+<v-layout class=welcome-snap> 
+  <div class="welcome-snap__sidebar"></div>    
+  <v-container class="ml-12 mt-12">
+    <v-row no-gutters class="ml-12">
+      <v-col sm="5" md="6" class="mt-12 ml-12">
+          <div class="carousel">
+            <v-carousel
+              height="420"
+              width="560"
+              interval="4000"
+              :show-arrows="false"
+              hide-delimiters
+              >
+              <v-carousel-item
+                class="img"
+                v-for="(item,i) in items"
+                :key="i"
+                :src="item.src"
+                transition="slide-x-transition"
+              ></v-carousel-item>
+            </v-carousel>
+          </div>
       </v-col>
 
-    <div class="data">
-      <div class="tag">
-        <span></span>
-      </div>
-      <div class="arrow-left">
-        <v-icon slot="append" color="#444">mdi-chevron-left</v-icon>
-      </div>
-      <div class="arrow-right">
-        <v-icon slot="append" color="#444">mdi-chevron-right</v-icon>
-      </div>
-      <div class="tag-line">
-        <span>Discover product</span>
-      </div>
-    </div>
+      <v-col
+        align-self="center"
+        class="ml-12 mt-1 pl-2"
+        sm="4"
+        offset-sm="2"
+        offset-md="0"
+      >
+          <div class="description">
+            <div class="category grey  text-uppercase white--text mt-5 mb-5">Editorial</div>
+            <div class="main-heading pb-5 font-weight-black">Our Story</div>
+            <p class="sub-heading text-subtitle-2">We introduce you to the story of four girls who have carved out their space in the world.</p>
+          </div>
+          <div class="pt-6">
+            <router-link class="text-uppercase" to="#">Заценить весь look</router-link>
+          </div>
+      </v-col>
 
- 
-  </v-layout>
+    </v-row>
 
-</v-container>
+  </v-container>
+</v-layout>
 </template>
 
 <script>
-import ArticlePreview from '~/components/article/Preview.vue'
-import SignUpNews from '~/components/SignUpNews.vue'
-
 export default {
-  components: {
-    ArticlePreview,
-    SignUpNews
-  }
+  layout: 'empty',
+  data: () => ({
+    items: [
+      {
+        src: 'https://i.pinimg.com/564x/b9/9c/4b/b99c4bd0ee5f90097448819d9d9b4fc7.jpg',
+      },    
+      {
+        src: 'https://i.pinimg.com/564x/6f/90/d8/6f90d8f93e8c1cd1b242e5819f434436.jpg',
+      },
+      {
+        src: 'https://i.pinimg.com/564x/6f/90/d8/6f90d8f93e8c1cd1b242e5819f434436.jpg',
+      },
+      {
+        src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
+      },
+    ],    
+  })
 }
 </script>
 
@@ -54,139 +74,127 @@ a {
   text-decoration: none;
   color: #232323 !important;
 }
-
-
-.s-one {
-  position: absolute;
-  width: 1px;
+.welcome-snap__sidebar {
+  background: #1a1a1a;
   height: 100vh;
-  background: rgba(0, 0, 0, .2);
-  left: 25%;
+  width: 350px;
+  position: absolute;
 }
-.s-two {
-  position: absolute;
-  width: 1px;
-  height: 100vh;
-  background: rgba(0, 0, 0, .2);
-  left: 50%;
-}
-.s-three {
-  position: absolute;
-  width: 1px;
-  height: 100vh;
-  background: rgba(0, 0, 0, .2);
-  left: 75%;
-}    
-
-.data {
-  .arrow-left {
-    position: fixed;
-    bottom: 66px;
-    left: 132px;
-    padding: 10px 30px;
-  }
-  .arrow-right {
-    position: fixed;
-    bottom: 66px;
-    left: 222px;
-    padding: 10px 30px;
-  }  
-  .img {
-    position: fixed;
+.welcome-snap__content {
+  .carousel {
+    opacity: 0;
+    animation: appear-text 1s linear forwards;
+    animation-delay: 1.4s;
     z-index: 0;
-
-  }
-  .e-shop {
-    position: fixed;
-    left: 1020px;
-    top: 180px;
-    transform: rotate(90deg);
-    padding: 10px 30px;
-  }
-  .media {
     position: absolute;
-    right: 40px;
-    bottom: 7%;
-    line-height: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 50px;
-  }
+    height: 400px;
+    width: 560px;
+    margin-top: 80px;
 
-
-  .img {
-      opacity: 0;
-      animation: appear-text 1s linear forwards;
-      animation-delay: 1.4s;
-      position: fixed;
-      z-index: 0;
-      top: 10%;
-      left: 38%;
-      &:after {
-        content: "";
-        top: 0;
-        left: 0;
-        width: 0;
-        height: 100%;
-        background: #b68c70;
-        position: absolute;
-        animation: rev-img 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
-        animation-delay: 1s;     
-      }
-      img {
-        width: 48%;
-        height: 300px;
-      }
-  }
-
-  .title {
-    position: absolute;
-    font-size: 62px;
-    top: 276px;
-    left: 862px;
-    span {
-      opacity: 0;
-      animation: appear-text 0.0001s linear forwards;
-      animation-delay: 2s;
-    }
     &:after {
       content: "";
+      width: 400px;
       top: 0;
       left: 0;
-      width: 0;
-      height: 100%;
-      background: #000;
+      height: 400px;
+      width: 560px;
+      background: #b68c70;
       position: absolute;
-      animation: rev-block 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
-      animation-delay: 1.4s;
+      animation: rev-img 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+      animation-delay: 1s;     
     }
   }
-
-  .tag-line {
-    position: fixed;
-    top: 410px;
-    left: 692px;
-    padding: 10px 30px;
-    color: #333;
-    span {
-      opacity: 0;
-      animation: appear-text 0.0001s linear forwards;
-      animation-delay: 2.5s;     
-    }
-    &:after {
-      content: "";
-      top: 0;
-      left: 0;
-      width: 0;
-      height: 100%;
-      background: #000;
-      position: absolute;
-      animation: rev-block 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
-      animation-delay: 1.8s;      
-    }
+  .main-heading {
+    font-size: 68px !important;
+    font-family: 'Montserrat'; 
+    color: #1a1a1a;
+    font-weight: 600 !important;
+  }  
+  .sub-heading {
+    max-width: 324px;
+    margin-bottom: 24px;
+    color: #1a1a1a;
+    font-size: 16px;
+    line-height: 26px;
+    font-weight: 500;      
+  }
+  .category {
+    font-size: 12px;
+    letter-spacing: 0.07em;  
+    width: 110px;
+    text-align: center;
+    padding: 6px 16px;
+    font-family: 'Montserrat', sans-serif; 
   }  
 }
+
+
+
+
+
+// .welcome-snap__ {
+//   position: absolute;
+//   margin-left: 0px;
+//   .title {
+//     position: absolute;
+//     width: 100%;
+//     top: 220px;
+//     left: 571px;
+//     span {
+//       font-size: 3rem;
+//       opacity: 0;
+//       animation: appear-text 0.0001s linear forwards;
+//       animation-delay: 2s;
+//     }
+//     &:after {
+//       content: "";
+//       top: 0;
+//       left: 0;
+//       width: 0;
+//       height: 100%;
+//       background: #000;
+//       position: absolute;
+//       animation: rev-block 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+//       animation-delay: 1.4s;
+//     }
+//   }
+//   .editorial {
+//     position: absolute;
+//     top: 120px;
+//     left: 580px;
+    
+//     height: 30px;
+//     width: 100px;
+//     span {
+//       background: #00c58e;
+//       padding: 10px 30px;
+//     }
+//   }  
+//   .tag-line {
+//     position: absolute;
+//     top: 410px;
+//     left: 692px;
+//     padding: 10px 30px;
+//     color: #333;
+//     span {
+//       opacity: 0;
+//       animation: appear-text 0.0001s linear forwards;
+//       animation-delay: 2.5s;     
+//     }
+//     &:after {
+//       content: "";
+//       top: 0;
+//       left: 0;
+//       width: 0;
+//       height: 100%;
+//       background: #000;
+//       position: absolute;
+//       animation: rev-block 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+//       animation-delay: 1.8s;      
+//     }
+//   }  
+// }
+
 
 @keyframes rev-block {
   0%{ left: 0%; width: 0% }
