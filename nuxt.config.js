@@ -31,15 +31,12 @@ export default {
   /*
   ** Global CSS
   */
-  css: [
-
-  ],
+  css: ['vue-slick-carousel/dist/vue-slick-carousel.css', 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'],
   /*
   ** Plugins to load before mounting the App
   ** https://nuxtjs.org/guide/plugins
   */
-  plugins: [
-  ],
+  plugins: ['~plugins/vue-slick-carousel.js'],
   /*
   ** Auto import components
   ** See https://nuxtjs.org/api/configuration-components

@@ -13,6 +13,8 @@
     "@nuxtjs/axios": "^5.11.0",
     "nuxt": "^2.13.0",
     "vee-validate": "^3.3.7",
+    "vue-product-carousel": "^1.2.0",
+    "vue-slick-carousel": "^1.0.6",
     "vue-the-mask": "^0.11.1"
   },
   "devDependencies": {

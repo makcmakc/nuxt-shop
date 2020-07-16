@@ -1,12 +1,12 @@
 <template>
-	<div class="cart">
-		<h1>Your bag is currently empty</h1>
+	<div class="journal">
+
 	</div>
 </template>
 
 <script>
 	export default {
-		name: 'cart',
+		name: 'journal',
 		data() {
 			return {}
 		},

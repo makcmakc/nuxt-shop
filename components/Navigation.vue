@@ -1,12 +1,22 @@
 <template>
 	 <v-flex>
 	 	<v-toolbar fixed>
-			<v-layout	class="d-flex justify-center align-center pt-2 font-weight-light"	title	color="grey lighten-4">
-				<router-link to="/men"><v-text	class="pl-8 pr-8"	flat>men</v-text></router-link>
-				<router-link to="/women"><v-text	class="pl-8 pr-8"	flat>women</v-text></router-link>
-				<router-link to="/"><v-text	class="pl-8 pr-8"><img src="~/assets/Nuxt-js.png" alt="Nuxt.js" style="width: 50px;	margin-top: -10px;"></v-text></router-link>
-				<router-link to="/sale"><v-text	class="pl-8 pr-8"	flat>sale</v-text></router-link>
-				<router-link to="/discover_more"><v-text	class="pl-8 pr-8"	flat>discover more</v-text></router-link>
+			<v-layout	class="d-flex justify-center align-center pt-4 font-weight-light"	title	color="grey lighten-4">
+				<nuxt-link to="/men">
+					<p class="pl-8 pr-8" flat>men</p>
+				</nuxt-link>
+				<nuxt-link to="/women">
+					<p class="pl-8 pr-8" flat>women</p>
+				</nuxt-link>
+				<nuxt-link to="/">
+					<p class="pl-8 pr-8"><img src="~/assets/Nuxt-js.png" alt="Nuxt.js" style="width: 50px;	margin-top: 5px;"></p>
+				</nuxt-link>
+				<nuxt-link to="/sale">
+					<p class="pl-8 pr-8"	flat>sale</p>
+				</nuxt-link>
+				<nuxt-link to="/discover_more">
+					<p class="pl-8 pr-8"	flat>discover more</p>
+				</nuxt-link>
 			</v-layout>
 <!-- 		
 			<v-toolbar-item>
@@ -30,11 +40,9 @@
 	import Logo from '~/components/Logo.vue'
 	export default {
 	  name: 'navigation',
-	  data: () => ({
-
-	  }),
 		components: {
 			Logo
+
 		},
 		methods: {},
 		computed: {},
@@ -43,4 +51,8 @@
 </script>
 
 <style>
+a {
+  text-decoration: none;
+  color: #232323 !important;
+}
 </style>
