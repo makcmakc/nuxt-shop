@@ -2,9 +2,9 @@
   <v-app>
     <Navigation></Navigation>
     <v-main>
-
+      <v-container fluid>
         <nuxt />
-
+      </v-container>
     </v-main>
     <v-divider></v-divider>
     <Footer></Footer>   

@@ -1,11 +1,11 @@
 <template>
   <div class="home">
-    <NewArrivalsSection />
+    <JournalSection />
   </div>
 </template>
 
 <script>
-import NewArrivalsSection from '~/components/NewArrivalsSection'
+import JournalSection from '~/components/JournalSection'
 
   export default {
     name: 'home',
@@ -13,7 +13,7 @@ import NewArrivalsSection from '~/components/NewArrivalsSection'
       return {}
     },
     components: {
-      NewArrivalsSection
+      JournalSection
     },
     methods: {},
     computed: {},
