@@ -5,8 +5,7 @@
 * NuxtJS
 * Vuetify
 * GSAP
-
-*Expess
+* Expess
 
 ## Build Setup
 
