@@ -1,5 +1,13 @@
 # nuxt-shop
 
+## Stack
+
+* NuxtJS
+* Vuetify
+* GSAP
+
+*Expess
+
 ## Build Setup
 
 ```bash
