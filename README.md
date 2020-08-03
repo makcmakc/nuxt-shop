@@ -8,7 +8,6 @@ Fullstack application built using Nuxt.js (Vue with server side rendering) and N
 * Vuetify
 * GSAP
 
-* NodeJS
 * Expess
 
 ## Build Setup
