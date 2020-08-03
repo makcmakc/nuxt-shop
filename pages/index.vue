@@ -1,11 +1,11 @@
 <template>
   <div class="home">
-    <JournalSection />
+    <SignUpNews />
   </div>
 </template>
 
 <script>
-import JournalSection from '~/components/JournalSection'
+import SignUpNews from '~/components/SignUpNews'
 
   export default {
     name: 'home',
@@ -13,7 +13,7 @@ import JournalSection from '~/components/JournalSection'
       return {}
     },
     components: {
-      JournalSection
+      SignUpNews
     },
     methods: {},
     computed: {},
