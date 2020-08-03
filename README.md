@@ -1,4 +1,6 @@
-# nuxt-shop
+# Nuxt Fullstack Application
+
+Fullstack application built using Nuxt.js (Vue with server side rendering) and Node.js
 
 ## Stack
 
@@ -6,7 +8,8 @@
 * Vuetify
 * GSAP
 
-*Expess
+* NodeJS
+* Expess
 
 ## Build Setup
 
