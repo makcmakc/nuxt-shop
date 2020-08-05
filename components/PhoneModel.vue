@@ -53,9 +53,19 @@
 
 		      <div class="nav">
 		        <div class="messages"></div>
-		        <div class="phone-number">Nuxt Shop</div>
+		        <div class="nav-title">Nuxt Shop</div>
 		        <div class="menu"></div>
 		      </div>
+
+          <div class="message top">
+            <div class="message-text">
+              Одно из самых удачных сочетаний- джинсовка с бежевыми брюками, сейчас покажем какими
+              <div class="message-link">
+                <strong>Джинсовки</strong>
+                <p><a href="#">https://nuxt-shop/Yz2VvQ</a></p>
+              </div>
+            </div>
+          </div>
 
 		      <div class="message">
 		        <div class="message-image">
@@ -724,12 +734,13 @@
     content: "";
     display: block;
     position: absolute;
-    height: 25%;
+    height: 23%;
     width: 100%;
     top: -10%;
     // background-image: -webkit-gradient(linear, left bottom, left top, from(#f1f1f1), to(#f1f1f1));
     background-color: #f7f7f7;
     // transform: skewY(-15deg);
+    z-index: 1;
   }
 }
 
@@ -740,6 +751,7 @@
     position: absolute;
     left: 40px;
     top: 10px;
+    z-index: 1;
   }
 
   .range {
@@ -749,6 +761,7 @@
     background-color: #333;
     right: 70px;
     top: 14px;
+    z-index: 1;
 
     &:after {
       content: "";
@@ -759,6 +772,7 @@
       background-color: #333;
       bottom: 0;
       left: 4px;
+
     }
 
     &:before {
@@ -783,6 +797,7 @@
     border: 4px double transparent;
     border-top-color: #333;
     border-radius: 50%;
+    z-index: 1;
 
     &:before {
       display: inline-block;
@@ -809,6 +824,7 @@
   right: 20px;
   border-radius: 1px;
   border: 1px solid #333;
+  z-index: 1;
 
   &:after {
     content: "";
@@ -829,13 +845,15 @@
   display: flex;
   padding: 0 20px;
   box-sizing: border-box;
+  z-index: 1;
 
-  .phone-number {
+  &-title {
     color: #333;
-    font-size: 14px;
+    font-size: 18px;
     -webkit-box-flex: 1;
     flex: 1;
     text-align: center;
+    z-index: 1;
   }
 
   .messages {
@@ -913,6 +931,7 @@
   }
 }
 
+
 .message {
   position: absolute;
   top: 210px;
@@ -921,6 +940,11 @@
   color: #000;
   background: #fff;
   border-radius: 10px;
+
+  &.top {
+    top: 45px;
+    z-index: 0;
+  }
 
   &-image img {
   	width: 100%;

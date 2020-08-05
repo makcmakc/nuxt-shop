@@ -6,14 +6,21 @@
 					<PhoneModel />
 				</v-col>
           <v-col
-            class="ml-12 mt-12 pt-10 pl-2"
+            class="ml-10 pt-4 pl-2"
             sm="4"
             offset-sm="2"
             offset-md="0"
           	>
-            <div class="description mt-12">
-              <p class="sub-heading text-h4">Подписывайся на наш Telegram Bot, чтобы быть в курсе новых поступлений, а также получать информацию о скидках</p>
+            <div class="description mt-12 pt-4">
+              <p class="sub-heading text-h5">
+              	Подписывайся на наш Telegram Bot, чтобы быть в курсе всех новинок, <br>
+              	а также получать информацию о скидках.
+              </p>
             </div>
+            <v-btn dark depressed large class="mt-4">
+            	Подписаться
+            	<v-icon class="ml-2">mdi-telegram</v-icon>
+            </v-btn>
        		</v-col>
 				</div>
 			</v-row>
@@ -33,7 +40,7 @@
 
 <style>
 .phone-section {
-  height: 80vh;
+  height: 70vh;
   position: relative;
 }
 </style>

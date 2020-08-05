@@ -4,11 +4,15 @@ Fullstack application built using Nuxt.js (Vue with server side rendering) and N
 
 ## Stack
 
-* NuxtJS
-* Vuetify
-* GSAP
+* [NuxtJS](https://ru.nuxtjs.org)
+* [Vuetify](https://vuetifyjs.com)
+* [GSAP](https://greensock.com/gsap)
+* Animation
+  - [Effects when switching route views](https://router.vuejs.org/guide/advanced/transitions.html#route-based-dynamic-transition)
 
-* Expess
+* [NodeJS](https://nodejs.org)
+* [Expess](https://expressjs.com)
+
 
 ## Build Setup
 

@@ -1,6 +1,6 @@
 <template>
 	<v-layout class="journal">
-		<v-row align="center" justify="center" >
+		<v-row align="center" justify="center">
 
 			<v-col cols="6">
 				<v-card>
@@ -29,21 +29,22 @@
 				</v-card>
 			</v-col>
 
-			<v-col cols="8" class="mt-12">
+			<v-col cols="8" class="mt-12 mb-10">
 				<v-card class="mt-12">
 					<v-img src="https://cdn.shopify.com/s/files/1/0318/4253/3515/articles/131170-Sansa-Cashmere-Knit---132620-Riva-Chester-Jacket---123590-Gerry-Twiggy-Pant_1440x.jpg?v=1588160509">
 					</v-img>
 
 				</v-card>
-				<div align="center" class="preview mt-12">
-					<div class="text-subtitle-1 font-weight-light">Как одеться летом в городе - простые и элегантные образы</div>
-					<v-col cols="5">
-					<div class="text-subtitle-2 font-weight-light font-italic mt-2">Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Переулка повстречался рукопись, инициал рекламных семантика, рот деревни!</div>
+				<div align="center" class="preview mt-12 mb-10">
+					<div class="text-h5 font-weight-light">Как одеться летом в городе - простые и элегантные образы</div>
+					<v-col cols="6">
+					<div class="text-subtitle-1 font-weight-light font-italic mt-2">Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Переулка повстречался рукопись, инициал рекламных семантика, рот деревни!</div>
+					<router-link to="#">Read Now</router-link>
 					</v-col>
 				</div>
 			</v-col>
 
-			<v-col cols="12">
+			<v-col cols="12" class="mb-12">
 				<v-row dence>
 			  <v-card
 			  	v-for="(article, index) in articles"

@@ -13,11 +13,13 @@
 
 <script>
 import Navigation from '~/components/Navigation.vue'  
+import WelcomeSection from '~/components/WelcomeSection.vue'
 import Footer from '~/components/Footer.vue'
 
 export default {
   components: {
     Navigation,
+    WelcomeSection,
     Footer
   }
 }

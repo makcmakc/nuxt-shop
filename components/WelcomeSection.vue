@@ -1,15 +1,16 @@
 <template>
-  <v-layout> 
+  <v-layout class="ma-n3"> 
     <div class="welcome-section">
-     <div class="welcome-snap__sidebar"></div>   
-      <v-container class="ml-12 mt-10" fluid>
-        <v-row no-gutters class="ml-12" >
-          <v-col sm="5" md="6" class="mt-12 ml-12">
+      <div class="welcome-snap__sidebar"></div>   
+
+      <v-container class="ml-12 mt-10 mb-10 welcome-snap__content" fluid>
+        <v-row no-gutters class="ml-12 mt-12">
+          <v-col class="ml-12 pr-10" cols="5">
               <div class="carousel">
                 <v-carousel
                   cycle
                   height="420"
-                  width="560"
+                  width="540"
                   interval="4000"
                   :show-arrows="false"
                   hide-delimiters
@@ -24,35 +25,85 @@
                 </v-carousel>
               </div>
           </v-col>
+
           <v-col
-            class="ml-12 mt-12 pt-10 pl-2"
-            sm="4"
-            offset-sm="2"
+            cols="4"
+            sm="5"
+            offset-sm="6"
+            md="6"
             offset-md="0"
+            class="mt-8 ml-10"
           >
-              <div class="description">
+              <div class="description ml-12">
                  <router-link to="#">
                   <div class="category grey  text-uppercase white--text mt-5 mb-5">Editorial</div>
                 </router-link>
                 <div class="main-heading pb-5 font-weight-black">Our Story</div>
                 <p class="sub-heading text-subtitle-2">We introduce you to the story of four girls who have carved out their space in the world.</p>
               </div>
-              <div class="pt-6">
-                <router-link class="text-uppercase" to="#">
-                  Заценить весь look
-                </router-link>
-              </div>
+              <v-btn dark depressed large class="mt-4 ml-12">
+                <router-link class="text-uppercase white--text" to="#">Заценить весь look</router-link>
+              </v-btn>                
           </v-col>
         </v-row>
       </v-container>
+
     </div>
+
+    <div class="welcome-section-default">
+      <v-container class="ml-12 mt-10 mb-10 welcome-snap__content" fluid>
+        <v-row no-gutters class="ml-12 mt-12">
+          <v-col class="ml-12 pr-10" cols="5">
+              <div class="carousel">
+                <v-carousel
+                  cycle
+                  height="420"
+                  width="540"
+                  interval="4000"
+                  :show-arrows="false"
+                  hide-delimiters
+                  >
+                  <v-carousel-item
+                    class="img"
+                    v-for="(item,i) in items"
+                    :key="i"
+                    :src="item.src"
+                    transition="slide-x-transition"
+                  ></v-carousel-item>
+                </v-carousel>
+              </div>
+          </v-col>
+
+          <v-col
+            cols="4"
+            sm="5"
+            offset-sm="6"
+            md="6"
+            offset-md="0"
+            class="mt-8 ml-10 description"
+          >
+              <div class="ml-12">
+                 <router-link to="#">
+                  <div class="category grey  text-uppercase white--text mt-5 mb-5">Editorial</div>
+                </router-link>
+                <div class="main-heading pb-5 font-weight-black">Our Story</div>
+                <p class="sub-heading text-subtitle-2">We introduce you to the story of four girls who have carved out their space in the world.</p>
+              </div>
+              <v-btn dark depressed large class="mt-4 ml-12">
+                <router-link class="text-uppercase white--text" to="#">Заценить весь look</router-link>
+              </v-btn>                
+          </v-col>
+        </v-row>
+      </v-container>
+
+    </div>    
   </v-layout>
 </template>
 
 <script>
+import { TimelineMax } from 'gsap'
 export default {
   name: 'welcome',
-  layout: 'empty',
   data: () => ({
     items: [
       {
@@ -68,13 +119,32 @@ export default {
         src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
       },
     ],    
-  })
+  }),
+  mounted() {
+    const leftBar = document.querySelector('.welcome-snap__sidebar')
+    // const content = document.querySelector('.welcome-snap__content')
+    const carousel = document.querySelector('.carousel')
+    const description = document.querySelector('.description')
+    const tl = new TimelineMax()
+    tl.fromTo(leftBar, 1.8, { width: '100%', zIndex: 1 }, { width: '350px', zIndex: 0 }) 
+    // tl.to(content, .3, { scale: 0.95 }) 
+    tl.from(carousel, 1, { y: -80, opacity: 0 }) 
+    tl.from(description, 1.1, { y: -80, opacity: 0 }) 
+  }
 }
 </script>
 
 
 <style lang="scss">
 
+.welcome-section-default {
+  display: none;
+}
+
+.welcome-section {
+  width: 100%;
+  height: 100vh;
+}
 .welcome-snap__sidebar {
   background: #1a1a1a;
   height: 100vh;
@@ -83,28 +153,45 @@ export default {
 }
 
 .carousel {
-  opacity: 0;
-  animation: appear-text 1s linear forwards;
-  animation-delay: 1.4s;
-  z-index: 0;
-  position: absolute;
+  // opacity: 0;
+  // animation: appear-text 1s linear forwards;
+  // animation-delay: 1.4s;
+  // z-index: 0;
+  // position: absolute;
   height: 400px;
   width: 560px;
-  &:after {
-    content: "";
-    width: 400px;
-    top: 0;
-    left: 0;
-    height: 400px;
-    width: 560px;
-    background: #b68c70;
-    position: absolute;
-    animation: rev-img 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
-    animation-delay: 1s;     
-  }
+  opacity: 1;
+  position: relative;
+  // &:after {
+  //   content: "";
+  //   width: 400px;
+  //   top: 0;
+  //   left: 0;
+  //   height: 400px;
+  //   width: 560px;
+  //   background: #b68c70;
+  //   position: absolute;
+  //   animation: rev-img 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+  //   animation-delay: 1s;     
+  // }
+  // &::after {
+  //  content: '';
+  //  top: 0;
+  //  left: 0;
+  //  position: absolute;
+  //  width: 0%;
+  //  height: 420px;
+  //  background: #9a8b78;
+  //  animation: rev-block 2.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+  //  animation-delay: 4.4s;
+  // }
+}
+
+.description {
+  opacity: 1;
 }
 .main-heading {
-  font-size: 68px !important;
+  font-size: 64px !important;
   font-family: 'Montserrat'; 
   color: #1a1a1a;
   font-weight: 600 !important;
