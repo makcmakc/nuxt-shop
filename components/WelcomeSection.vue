@@ -3,7 +3,7 @@
     <div class="welcome-section">
       <div class="welcome-snap__sidebar"></div>   
 
-      <v-container class="ml-12 mt-10 mb-10 welcome-snap__content" fluid>
+      <v-container class="ml-12 mt-12 mb-10 welcome-snap__content" fluid>
         <v-row no-gutters class="ml-12 mt-12">
           <v-col class="ml-12 pr-10" cols="5">
               <div class="carousel">
@@ -113,10 +113,10 @@ export default {
         src: 'https://i.pinimg.com/564x/6f/90/d8/6f90d8f93e8c1cd1b242e5819f434436.jpg',
       },
       {
-        src: 'https://i.pinimg.com/564x/6f/90/d8/6f90d8f93e8c1cd1b242e5819f434436.jpg',
+        src: 'https://i.pinimg.com/564x/b9/9c/4b/b99c4bd0ee5f90097448819d9d9b4fc7.jpg',
       },
       {
-        src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
+        src: 'https://i.pinimg.com/564x/6f/90/d8/6f90d8f93e8c1cd1b242e5819f434436.jpg',
       },
     ],    
   }),
@@ -139,52 +139,29 @@ export default {
 
 .welcome-section-default {
   display: none;
+  transform: scale(.95);
 }
 
 .welcome-section {
   width: 100%;
   height: 100vh;
+  margin-top: -60px;
 }
 .welcome-snap__sidebar {
   background: #1a1a1a;
-  height: 100vh;
+  height: 110vh;
   width: 350px;
   position: absolute;
 }
+.welcome-snap__content {
+  margin-top: 100px;
+}
 
 .carousel {
-  // opacity: 0;
-  // animation: appear-text 1s linear forwards;
-  // animation-delay: 1.4s;
-  // z-index: 0;
-  // position: absolute;
   height: 400px;
   width: 560px;
   opacity: 1;
   position: relative;
-  // &:after {
-  //   content: "";
-  //   width: 400px;
-  //   top: 0;
-  //   left: 0;
-  //   height: 400px;
-  //   width: 560px;
-  //   background: #b68c70;
-  //   position: absolute;
-  //   animation: rev-img 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
-  //   animation-delay: 1s;     
-  // }
-  // &::after {
-  //  content: '';
-  //  top: 0;
-  //  left: 0;
-  //  position: absolute;
-  //  width: 0%;
-  //  height: 420px;
-  //  background: #9a8b78;
-  //  animation: rev-block 2.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
-  //  animation-delay: 4.4s;
-  // }
 }
 
 .description {

@@ -1,8 +1,8 @@
 <template>
 	<v-footer color="white" padless>
     <v-row align="center" justify="center">
-      <v-col cols="12" sm="8" md="4">
-    		<v-card flat tile class="text-center align--center"	width="400px">
+      <v-col cols="4" sm="8" md="4">
+    		<v-card flat tile class="text-center align--center"	>
 		      <v-card-text>
 		        <v-btn
 		          v-for="icon in icons"

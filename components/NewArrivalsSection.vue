@@ -1,6 +1,6 @@
 <template>
-<!-- 	<v-container class="mt-12 pt-12"> -->
-  <div class="carousel-wrapper mt-12 mb-8">
+	<v-container fluid>
+  <div class="carousel-wrapper mt-12 mb-8 ml-1 mr-1">
   	<div class="ml-12 mb-4">
 	  	<div class="title">New Arrivals</div>
 	  	<p>Check out our latest arrivals for the upcoming season</p>
@@ -12,18 +12,18 @@
 		  <v-card
 		    class="mx-auto pa-1"
 		    width="330"
-		    v-for="i in 10"
-		    :key="i"
+		    v-for="arrival in arrivals"
+		    :key="arrival.id"
 		    flat
 		  >
 			 <v-img
 	      class="white--text align-end"
 	      height="380px"
-	      src="https://cdn.shopify.com/s/files/1/0318/4253/3515/products/123590GerryTwiggyPantLightTaupe_1440x.jpg?v=1594044173"
+	      :src="require(`~/assets/images/${arrival.img}`)"
 		    >
 		    	<v-card-title>New</v-card-title>
 		    </v-img>
-		    <v-card-title class="text-subtitle-1">Gerry Twiggy Pant Sustainable</v-card-title>
+		    <v-card-title class="text-subtitle-1">{{ arrival.name }}</v-card-title>
 		    <v-btn-toggle 
 		    	v-model="toggle_exclusive"
 		    	active-class="current-color"
@@ -31,9 +31,13 @@
 		    	group elevation
 		    	class="ml-2 mt-n2"
 		    	>
-          <v-btn icon color="" ><v-icon size="15px">mdi-brightness-1</v-icon></v-btn>
-          <v-btn icon color="red" class="ml-n1"><v-icon size="15px">mdi-brightness-1</v-icon></v-btn>
-          <v-btn icon color="orange darken-2" class="ml-n1"><v-icon size="15px">mdi-brightness-1</v-icon></v-btn>
+          <v-btn
+          	icon
+          	v-for="(option, index) in arrival.options"
+          	:key="index"
+          	:color="option"
+          	>
+          	<v-icon size="15px">mdi-brightness-1</v-icon></v-btn>
 		    </v-btn-toggle>
 
 		    <v-card-text class="mt-n6 ml-n3">
@@ -43,7 +47,7 @@
     </VueSlickCarousel>
 
   </div>
-<!-- </v-container> -->
+</v-container>
 </template>
 
 <script>
@@ -94,7 +98,51 @@ export default {
 			      }
 			    }
 			  ]
-      }
+      },
+      arrivals: [
+      	{ 
+      		id: 1,
+      		img: 'OscarO-neckKnit_1440x.jpg',
+      		name: 'Oscar Neck-Knit',
+      		price: 1500,
+      		options: ['#1a1a1c']
+      	},
+      	{ 
+      		id: 2,
+      		img: 'Tina_Jersey_Shirt_1440x.jpg',
+      		name: 'Tina Jersey Shirt',
+      		price: 1500,
+      		options: ['black', '#d9dce3']
+      	},
+      	{ 
+      		id: 3,
+      		img: 'Kaffe-ASTRID-ROLL-NECK-Jumper-rain-forest.jpg',
+      		name: 'Astrid-Roll Neck Jumper',
+      		price: 2000,
+      		options: ['#115048']
+      	},
+      	{ 
+      		id: 4,
+      		img: 'Mattie_Check_Shirt_1440x.jpg',
+      		name: 'Mattie Check Shirt',
+      		price: 1200,
+      		options: ['#bac5d7']
+      	},
+      	{ 
+      		id: 5,
+      		img: 'Tina_Jersey_Shirt_1440x.jpg',
+      		name: 'Tina Jersey Shirt',
+      		price: 1500,
+      		options: ['black']
+      	},
+      	{ 
+      		id: 6,
+      		img: 'Tina_Jersey_Shirt_1440x.jpg',
+      		name: 'Tina Jersey Shirt',
+      		price: 1500,
+      		options: ['black']
+      	}	      	      	      	      	
+      ]
     }
   }
 }

@@ -42,11 +42,9 @@
 	  name: 'navigation',
 		components: {
 			Logo
-
 		},
 		methods: {},
-		computed: {},
-		mounted() {}
+		computed: {}
 	}
 </script>
 

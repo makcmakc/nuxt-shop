@@ -1,7 +1,8 @@
 <template>
-	<v-layout class="journal">
+	<v-container fluid>
 		<v-row align="center" justify="center">
 
+			<v-row justify="center">
 			<v-col cols="6">
 				<v-card>
 					<v-img 
@@ -28,6 +29,7 @@
 				</v-img>
 				</v-card>
 			</v-col>
+		</v-row>
 
 			<v-col cols="8" class="mt-12 mb-10">
 				<v-card class="mt-12">
@@ -50,7 +52,7 @@
 			  	v-for="(article, index) in articles"
 			  	:key="index"
 			    class="mx-auto"
-			    max-width="360"
+			    max-width="320"
 			    flat
 			  >
 			    <v-img
@@ -67,7 +69,7 @@
 			</v-col>
 
 		</v-row>
-	</v-layout>
+	</v-container>
 </template>
 
 <script>
@@ -75,6 +77,10 @@
 		name: 'journal',
 		data() {
 			return {
+				collections: [
+					{ img: 'https://cdn.shopify.com/s/files/1/0318/4253/3515/files/134500_Wylie_Knit_-_134210_Naomi_Jewel_Jeans_Regular_1_768x.jpg?v=1594045124' },
+					{ img: 'https://cdn.shopify.com/s/files/1/0318/4253/3515/files/131731_Mattie_Sustainable_Shirt_White_768x.jpg?v=1594045207' },
+				],
 				articles: [
 					{ 
 						img: 'https://cdn.shopify.com/s/files/1/0318/4253/3515/articles/117440-Troy-Tee-SS---132450-Bradford-Worked-Jeans_2000x.jpg?v=1585049433',
@@ -84,7 +90,7 @@
 						date: 'Apr 03, 2020'
 					},
 					{
-						img: 'https://cdn.shopify.com/s/files/1/0318/4253/3515/articles/117440-Troy-Tee-SS---132450-Bradford-Worked-Jeans_2000x.jpg?v=1585049433',
+						img: 'https://cdn.shopify.com/s/files/1/0318/4253/3515/products/131660_Tina_Jersey_Shirt_1440x.jpg?v=1594041045',
 						title: 'Lorem ipsum dolor sit amet.',
 						subtitle: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro deserunt commodi accusantium? Ad fuga, enim tempora.',
 						url: '',
