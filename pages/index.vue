@@ -1,9 +1,10 @@
 <template>
   <div class="home">
    <div class="spacer"></div>
-   <NewArrivalsSection />
+
+<!--    <NewArrivalsSection />
    <JournalSection />
-   <SignUpNews />
+   <SignUpNews /> -->
   </div>
 </template>
 
@@ -12,6 +13,7 @@ import WelcomeSection from '~/components/WelcomeSection'
 import NewArrivalsSection from '~/components/NewArrivalsSection'
 import JournalSection from '~/components/JournalSection'
 import SignUpNews from '~/components/SignUpNews'
+
 
   export default {
     name: 'home',
