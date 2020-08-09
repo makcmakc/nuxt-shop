@@ -20,6 +20,8 @@
 	      class="white--text align-end"
 	      height="380px"
 	      :src="require(`~/assets/images/${arrival.img}`)"
+	      v-on:click.prevent.stop="toProduct(arrival.id)"
+
 		    >
 		    	<v-card-title>New</v-card-title>
 		    </v-img>
@@ -52,100 +54,104 @@
 
 <script>
 export default {
-  data() {
-    return {
-    	toggle_exclusive: 1,
-      slickOptions: {
-			  dots: false,
-			  infinite: false,
-			  speed: 500,
-			  slidesToShow: 4.2,
-			  slidesToScroll: 4,
-			  initialSlide: 0,
-			  arrows: true,
-			  responsive: [
-			    {
-			      breakpoint: 1280,
-			      settings: {
-			        slidesToShow: 8,
-			        slidesToScroll: 3,
-			        infinite: true,
-			        dots: false
-			      }
-			    },
-			    {
-			      breakpoint: 1024,
-			      settings: {
-			        slidesToShow: 3,
-			        slidesToScroll: 3,
-			        infinite: true,
-			        dots: false
-			      }
-			    },			    
-			    {
-			      breakpoint: 100,
-			      settings: {
-			        slidesToShow: 2,
-			        slidesToScroll: 2,
-			        initialSlide: 2
-			      }
-			    },
-			    {
-			      breakpoint: 480,
-			      settings: {
-			        slidesToShow: 1,
-			        slidesToScroll: 1
-			      }
-			    }
-			  ]
-      },
-      arrivals: [
-      	{ 
-      		id: 1,
-      		img: 'OscarO-neckKnit_1440x.jpg',
-      		name: 'Oscar Neck-Knit',
-      		price: 1500,
-      		options: ['#1a1a1c']
-      	},
-      	{ 
-      		id: 2,
-      		img: 'Tina_Jersey_Shirt_1440x.jpg',
-      		name: 'Tina Jersey Shirt',
-      		price: 1500,
-      		options: ['black', '#d9dce3']
-      	},
-      	{ 
-      		id: 3,
-      		img: 'Kaffe-ASTRID-ROLL-NECK-Jumper-rain-forest.jpg',
-      		name: 'Astrid-Roll Neck Jumper',
-      		price: 2000,
-      		options: ['#115048']
-      	},
-      	{ 
-      		id: 4,
-      		img: 'Mattie_Check_Shirt_1440x.jpg',
-      		name: 'Mattie Check Shirt',
-      		price: 1200,
-      		options: ['#bac5d7']
-      	},
-      	{ 
-      		id: 5,
-      		img: 'Tina_Jersey_Shirt_1440x.jpg',
-      		name: 'Tina Jersey Shirt',
-      		price: 1500,
-      		options: ['black']
-      	},
-      	{ 
-      		id: 6,
-      		img: 'Tina_Jersey_Shirt_1440x.jpg',
-      		name: 'Tina Jersey Shirt',
-      		price: 1500,
-      		options: ['black']
-      	}	      	      	      	      	
-      ]
-    }
+  data: () => ({
+  	toggle_exclusive: 1,
+    slickOptions: {
+		  dots: false,
+		  infinite: false,
+		  speed: 500,
+		  slidesToShow: 4.2,
+		  slidesToScroll: 4,
+		  initialSlide: 0,
+		  arrows: true,
+		  responsive: [
+		    {
+		      breakpoint: 1280,
+		      settings: {
+		        slidesToShow: 8,
+		        slidesToScroll: 3,
+		        infinite: true,
+		        dots: false
+		      }
+		    },
+		    {
+		      breakpoint: 1024,
+		      settings: {
+		        slidesToShow: 3,
+		        slidesToScroll: 3,
+		        infinite: true,
+		        dots: false
+		      }
+		    },			    
+		    {
+		      breakpoint: 100,
+		      settings: {
+		        slidesToShow: 2,
+		        slidesToScroll: 2,
+		        initialSlide: 2
+		      }
+		    },
+		    {
+		      breakpoint: 480,
+		      settings: {
+		        slidesToShow: 1,
+		        slidesToScroll: 1
+		      }
+		    }
+		  ]
+    },
+    arrivals: [
+    	{ 
+    		id: 1,
+    		img: 'OscarO-neckKnit_1440x.jpg',
+    		name: 'Oscar Neck-Knit',
+    		price: 1500,
+    		options: ['#1a1a1c']
+    	},
+    	{ 
+    		id: 2,
+    		img: 'Tina_Jersey_Shirt_1440x.jpg',
+    		name: 'Tina Jersey Shirt',
+    		price: 1500,
+    		options: ['black', '#d9dce3']
+    	},
+    	{ 
+    		id: 3,
+    		img: 'Kaffe-ASTRID-ROLL-NECK-Jumper-rain-forest.jpg',
+    		name: 'Astrid-Roll Neck Jumper',
+    		price: 2000,
+    		options: ['#115048']
+    	},
+    	{ 
+    		id: 4,
+    		img: 'Mattie_Check_Shirt_1440x.jpg',
+    		name: 'Mattie Check Shirt',
+    		price: 1200,
+    		options: ['#bac5d7']
+    	},
+    	{ 
+    		id: 5,
+    		img: 'Tina_Jersey_Shirt_1440x.jpg',
+    		name: 'Tina Jersey Shirt',
+    		price: 1500,
+    		options: ['black']
+    	},
+    	{ 
+    		id: 6,
+    		img: 'Tina_Jersey_Shirt_1440x.jpg',
+    		name: 'Tina Jersey Shirt',
+    		price: 1500,
+    		options: ['black']
+    	}	      	      	      	      	
+    ]
+  }),
+  methods: {
+  	toProduct(id) {
+  		this.$router.push({ name: 'products', params: {id} })
+  	}
   }
 }
+// 		    :to="`/products/${arrival.id}`"
 </script>
 
 <style>

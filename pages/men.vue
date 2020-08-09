@@ -1,7 +1,6 @@
 <template>
 	<div class="men">
 		<h1>Men Page</h1>
-		<router-link to="products">Product</router-link>
 	</div>
 </template>
 

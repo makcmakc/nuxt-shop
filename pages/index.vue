@@ -2,8 +2,8 @@
   <div class="home">
    <div class="spacer"></div>
 
-<!--    <NewArrivalsSection />
-   <JournalSection />
+   <NewArrivalsSection />
+<!--    <JournalSection />
    <SignUpNews /> -->
   </div>
 </template>
