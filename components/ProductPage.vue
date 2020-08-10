@@ -20,20 +20,53 @@
 
       <v-col cols="6" class="block-details">
         <v-layout>
-          <v-col class="mt-12 ml-6">
-            <div class="name mt-2">
-              {{ name }}
+          <v-col class="mt-12 ml-4">
+            <div class="name mt-2 ml-4">
+              <p class="text-h6 font-weight-bold">{{ name }}</p>
             </div>
             <div class="description mt-8">
               <v-subheader>{{ description }}</v-subheader>
             </div>
             <div class="mt-6 text-subtitle-2 model-details">
-              <p> {{ modelDetails }} </p>
-              <span class="size-help">Size Help?</span>
+              <v-subheader>
+                <v-text>{{ modelDetails }}</v-text>
+                <v-text class="ml-2">-</v-text>
+                <v-text class="ml-2 text-decoration-underline">Size Helper</v-text>
+              </v-subheader>
             </div>
-            <div class="options"></div>
 
-            <div class="add-to-cart">
+            <v-col cols="4" class="options">
+              <v-text class="mt-4">Color </v-text>
+              <v-btn-toggle 
+                v-model="toggle_exclusive"
+                borderless dence
+                group elevation
+                class="ml-2 mt-3"
+                >
+                <v-btn
+                  icon
+                  v-for="(option, index) in options"
+                  :key="index"
+                  :color="option"
+                  >
+                  <v-icon size="14px">mdi-brightness-1</v-icon></v-btn>
+              </v-btn-toggle>
+            </v-col>
+
+            <div class="sizes ml-4">
+              <v-text class="mt-4">Size</v-text>
+              <v-radio-group v-model="row" row >
+                <v-radio value="XS" on-icon="XS" off-icon="XS"></v-radio>
+                <v-radio value="S" on-icon="S" off-icon="S"></v-radio>
+                <v-radio value="M" on-icon="M" off-icon="M"></v-radio>
+                <v-radio value="L" on-icon="L" off-icon="L"></v-radio>
+                <v-radio value="XL" on-icon="XL" off-icon="XL"></v-radio>
+              </v-radio-group>
+            </div>
+
+            <div class="price ml-4 mt-4"> ₽ {{ price }}</div>
+
+            <div class="add-to-cart ml-4 mt-10">
               <v-btn dark depressed large class="text-subtitle-1">Add To Bag</v-btn>
             </div>
           </v-col>
@@ -48,25 +81,14 @@
   export default {
     name: 'product',
     layout: 'empty',
-    // props: {
-    //   product: {
-    //     images: Array,
-    //     name: String,
-    //     description: String,
-    //     options: Array,
-    //     sizes: Array,
-    //     price: Number,
-    //     requred: true,
-    //     default: () => {}
-    //   }
-    // },
     data: () => ({
       name: 'Kay Tee',
       description: 'Not just your average pair of grey wash jeans. Cut in regular fit and mid-rise and crafted with plenty of stretch to maintain its figure-hugging fit throughout the day. Style yours with a leather jacket for an edgy look or tap into this season’s hot blazer and jeans trend.',
       modelDetails: 'Our model Marion is 178 cm tall and wears a size 27',
-      options: [],
+      options: ['black', 'green', 'cyan'],
       sizes: [],
-      price: '',
+      currentColor: null,
+      price: '700',
       items: [
           {
             src: 'Kay_Tee_1_Gold_1440x.jpg',
@@ -101,6 +123,16 @@
   margin: 0;
 }
 
+.v-input--selection-controls__input {
+  font-size: 10px;
+  width: 20px;
+}
+
+.v-icon.notranslate.material-icons.theme--light {
+  font-size: 16px;
+}
+
+
 .block-image .main-image {
   display: block;
   position: absolute;
@@ -112,10 +144,6 @@
   background-size: cover;
   cursor: crosshair;
   transition: opacity 0.4s ease-out;  
-}
-
-.block-image-carousel {
-
 }
 
 .v-carousel__controls {
