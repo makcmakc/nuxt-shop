@@ -31,14 +31,14 @@
               <v-subheader>
                 <v-text>{{ modelDetails }}</v-text>
                 <v-text class="ml-2">-</v-text>
-                <v-text class="ml-2 text-decoration-underline">Size Helper</v-text>
+                <v-text  @click="dialog = true" class="ml-2 text-decoration-underline size-helper">Size Helper</v-text>
               </v-subheader>
             </div>
 
             <v-col cols="4" class="options">
               <v-text class="mt-4">Color </v-text>
               <v-btn-toggle 
-                v-model="toggle_exclusive"
+                v-model="currentColor"
                 borderless dence
                 group elevation
                 class="ml-2 mt-3"
@@ -74,6 +74,25 @@
       </v-col>
 
     </v-row>
+
+    <v-dialog
+      v-model="dialog"
+      max-width="600"
+    >
+      <v-card>
+      <v-subheader>Size Guide</v-subheader>
+      <v-divider></v-divider>
+        <v-data-table
+          :pagination="false"
+          :headers="headers"
+          :items="desserts"
+          class="elevation-1 pa-4"
+        >
+
+      </v-data-table>
+      </v-card>
+    </v-dialog>
+
   </v-container>
 </template>
 
@@ -89,6 +108,7 @@
       sizes: [],
       currentColor: null,
       price: '700',
+      dialog: null,
       items: [
           {
             src: 'Kay_Tee_1_Gold_1440x.jpg',
@@ -99,7 +119,46 @@
           {
             src: 'Kay_Tee_Gold_3_1440x.webp'
           },
-        ]
+        ],
+       headers: [
+          {
+            text: 'Size',
+            align: 'start',
+            sortable: true,
+            value: 'name',
+          },
+          { text: 'XS', value: 'xs' },
+          { text: 'S', value: 's' },
+          { text: 'M', value: 'm' },
+          { text: 'L', value: 'l' },
+          { text: 'XL', value: 'xl' },
+        ],
+        desserts: [
+          {
+            name: 'Bust',
+            xs: 82,
+            s: 88,
+            m: 94,
+            l: 100,
+            xl: 106,
+          },
+          {
+            name: 'Waist',
+            xs: 64,
+            s: 70,
+            m: 76,
+            l: 82,
+            xl: 88,
+          },
+          {
+            name: 'Hip',
+            xs: 90,
+            s: 96,
+            m: 102,
+            l: 108,
+            xl: 114,
+          },
+        ]        
     }),
     methods: {
       scaleImage(img) {
@@ -125,13 +184,20 @@
 
 .v-input--selection-controls__input {
   font-size: 10px;
-  width: 20px;
+  width: 22px;
 }
 
 .v-icon.notranslate.material-icons.theme--light {
   font-size: 16px;
 }
 
+.v-dialog .v-card .v-data-footer {
+  display: none;
+}
+
+.size-helper {
+  cursor: pointer;
+}
 
 .block-image .main-image {
   display: block;
