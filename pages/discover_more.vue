@@ -1,6 +1,9 @@
 <template>
 	<div class="discover_more">
 		<h1>discover_more</h1>
+		<nuxt-link to="/auth">
+			<v-btn>login</v-btn>
+		</nuxt-link>
 	</div>
 </template>
 
@@ -8,16 +11,7 @@
 	import slide from '~/mixins/slide.js'
 	export default {
 		name: 'discover_more',
-		data() {
-			return {}
-		},
 		mixins: [slide],
-		methods: {},
-		computed: {},
-		mounted() {}
+		computed: {}
 	}
 </script>
-
-<style>
-
-</style>

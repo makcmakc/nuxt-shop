@@ -55,12 +55,31 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    '@nuxtjs/auth'
   ],
+  auth: {
+  // Options
+    strategies: {
+      local: {
+        endpoints: {
+          login: { url: '/sessions', method: 'post', propertyName: 'token' },
+          logout: { url: '/sessions', method: 'delete' },
+          user: { url: '/sessions/user', method: 'get', propertyName: 'data.attributes' }
+        },
+        // tokenRequired: true,
+        tokenType: '',
+        // globalToken: true,
+        // autoFetchUser: true
+      }
+    }  
+  },
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
   */
-  axios: {},
+  axios: {
+    baseURL: 'http://localhost:3000/api'
+  },
   /*
   ** vuetify module configuration
   ** https://github.com/nuxt-community/vuetify-module
